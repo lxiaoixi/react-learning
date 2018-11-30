@@ -300,7 +300,31 @@ props，输出就是一个普通的 JSX 组件实例。到这里，它和 ES6 �
 组件的内部状态管理可能会引起 bug。因为 React 的 setState() 方法是异步的。在你调用 setState() 方法的时候
 在其他地方被异步地改变了。这样会产生脏状态信息造成的 bug。
 
-		
+## 打包部署到github pages上
+
+* 在packjson.json 文件中添加配置：
+
+ 	"homepage": "https://lxiaoixi.github.io/react-learning/",
+
+	https://lxiaoixi.github.io/react-learning/  即为你在github上项目的地址
+
+	若为本地，则 './'
+
+	github pages 设置参考：
+	https://blog.csdn.net/dreamconan/article/details/79155975
+
+
+* npm install --save-dev gh-pages
+
+* 在package.json中添加如下脚本：
+	```
+	 "scripts": {
+      "predeploy": "npm run build",
+      "deploy": "gh-pages -d build"
+    }
+	```
+* 执行 npm run deploy	后会自动将build文件夹的代码push到gh-pages分支上
+* 访问 https://lxiaoixi.github.io/react-learning/index.html
 
 ## 采坑
 
